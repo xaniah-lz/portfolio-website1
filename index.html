@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+    <style>
+        :root {
+            --background-color: #191E29;
+            --nav-background-color: #132D46;
+            --text-color: #FFFFFF;
+            --project-box-background-color: #052659;
+            --input-background-color: #FFFFFF;
+            --button-background-color: #132D46;
+            --button-hover-background-color: #e60046;
+            --copy-right-background-color: #262626;
+            --image-hover-background: #191E29;
+        }
+
+        body.dark-mode {
+            --background-color: #2A93D5;
+            --nav-background-color: #BADFE7;
+            --text-color: #191E29;
+            --project-box-background-color: #2A93D5;
+            --input-background-color: #f0f0f0;
+            --button-background-color: #BADFE7;
+            --button-hover-background-color: #e60046;
+            --copy-right-background-color: #2A93D5;
+            --image-hover-background: #2A93D5;
+        }
+
+        body {
+            margin: 0;
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            background-color: var(--background-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image1 {
+            height: 90vh;
+            width: 80vh;
+            background-image: url('image1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            align-self: flex-end;
+            margin-top: -15vh; 
+            margin-right: 0%;
+            position: relative;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .image1:hover {
+            transform: scale(1.05);
+            filter: brightness(0.9);
+            background: var(--image-hover-background);
+        }
+
+        .navigation {
+            background-color: var(--nav-background-color);
+            height: 10%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navigation .logo {
+            height: 100px;          
+            margin-left: 2%;
+            position: relative;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .navigation .logo:hover {
+            transform: scale(1.05);
+            background: var(--image-hover-background);
+        }
+
+        .navigation .nav-items {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .navigation .nav-items h2 {
+            margin: 0;
+            padding: 0 20px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .navigation .nav-items h2:hover {
+            transform: scale(1.05);
+            background: var(--image-hover-background);
+        }
+
+        .navigation .nav-items h2 a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .content {
+            color: var(--text-color);
+            padding: 0 5%;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5%;
+        }
+
+        .content-text {
+            flex: 1;
+            margin-right: 7%;
+        }
+
+        .content h1 {
+            margin: 0;
+            margin-left: 5%;
+        }
+
+        .content .one {
+            padding-top: 10%;
+            margin-bottom: 0;
+            margin-left: 5%;
+        }
+
+        .content .two {
+            font-family: cursive;
+            font-size: 80px;
+        }
+
+        .content .three, .content .four {
+            margin-top: 0;
+        }
+
+        .content .four {
+            font-size: 80px;
+        }
+
+        .content .para {
+            margin-top: 20px;
+            margin-left: 5%;
+            font-size: 18px;
+        }
+
+        .section {
+            background-color: var(--background-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;     
+            color: var(--text-color);
+            padding-top: 5%;
+        }
+
+        .section h1 {
+            font-size: 3rem;
+            margin: 0;
+            margin-left: 10%;
+            margin-top: 3%;
+            text-align: center;
+            transform: translateX(10%);  
+            justify-content: center;
+        }
+
+        .section .one {
+            margin-top: 80px;
+            font-size: 30px;
+            padding-right: 50%;
+            text-align: justify;
+            margin-left: auto; 
+            max-width: 70%;
+        }
+
+        .section .two {
+            margin-top: 5px;
+            font-family: cursive;
+            font-size: 4rem;
+            padding-right: 15%;
+            text-align: justify;
+            margin-left: auto; 
+            max-width: 70%; 
+        }
+
+        .section .para {
+            margin-top: 30px;
+            font-size: 24px;
+            padding-right: 17%;
+            text-align: justify;
+            margin-left: auto; 
+            max-width: 70%; 
+        }
+
+        .image2 {
+            height: 70vh;
+            width: 60vh;
+            background-image: url('image2.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            align-self: flex-start;
+            margin-top: -70vh; 
+            margin-left: 3%;
+            position: relative;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .image2:hover {
+            transform: scale(1.05);
+            filter: brightness(0.9);
+            background: var(--image-hover-background);
+        }
+
+        .section .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; 
+            align-items: center;
+            margin-top: 50px; 
+        }
+
+        .section .project-box {
+            background-color: var(--project-box-background-color);
+            border: 2px solid var(--text-color);
+            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        .section .project-box:hover {
+            transform: scale(1.05);
+            background: var(--image-hover-background);
+        }
+
+        .section .project-box img {
+            max-width: 100%;
+            max-height: 250px;
+            margin-bottom: 5px;
+        }
+
+        .section .project-box a {
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 24px;
+            color: var(--text-color);
+            display: block;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-section a img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .contact-section a img:hover {
+            transform: scale(1.1); 
+            filter: brightness(0.8);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .pic1:hover {
+            transform: scale(1.05);
+            background: var(--nav-background-color);
+        }
+
+        .pic2:hover {
+            transform: scale(1.05);
+            background: var(--nav-background-color);
+        }
+
+        .pic3:hover {
+            transform: scale(1.05);
+            background: var(--nav-background-color);
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-links a .pic1 {
+            height: 40px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        .contact-links a .pic2 {
+            height: 40px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        .contact-links a .pic3 {
+            height: 40px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        .contact-links a span {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .contact-section {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 30px 10%;
+        }
+
+        .contact-section h1 {
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form form {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: var(--input-background-color);
+            padding: 10px;
+            margin: 15px 0;
+            color: var(--text-color);
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+        }
+
+        .contact-form button {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 7px;
+            cursor: pointer;
+            background: var(--button-background-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 6px;
+            transition: background 0.5s ease;
+            width: fit-content; 
+            margin-left: auto; 
+            margin-right: auto; 
+            display: block; 
+        }
+
+        .contact-form button:hover {
+            background: var(--button-hover-background-color);
+        }
+
+        .copy-right {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
+        .copy-right i {
+            color: #ff004f;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: var(--nav-background-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--button-hover-background-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="home">
+        <div class="navigation">
+            <img src="logo.png" class="logo" alt="logo">
+            <div class="nav-items">
+                <h2 class="home"><a href="#home">Home</a></h2>
+                <h2 class="about"><a href="#about">About</a></h2>
+                <h2 class="projects"><a href="#projects">Projects</a></h2>
+                <h2 class="contact"><a href="#contact">Contact</a></h2>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-text">
+                <h1 class="one">Hi it's me...</h1>
+                <h1 class="two" id="typing-text">LOREJOY</h1>
+                <h1 class="three">and I'm an aspiring</h1>
+                <h1 class="four">Web Developer</h1>
+                <p class="para">Welcome to my corner of the web! I'm Lorejoy,
+                    A second-year Information Technology
+                    student with big dreams of becoming a
+                    successful developer.<br> Join me on this journey
+                    of learning, growth, and pursuing my passion
+                    for technology. Let's code our way to success
+                    together!</p>
+            </div>
+            <img src="image1.png" class="image1" alt="image">
+        </div>
+    </div>
+
+    <div class="section" id="about">
+        <h1>[ About Me ]</h1>
+        <h1 class="one">Hi my name is</h1>
+        <h1 class="two" id="typing-text">LOREJOY C. ZORRILLA</h1>
+        <p class="para">Welcome to my digital space! 
+            I'm Lorejoy Zorrilla, <br>
+            A passionate second-year college student pursuing a<br>
+            Bachelor of Science in Information Technology. <br>
+            Here, I share my journey towards becoming a successful<br>
+            developer. Join me as I explore the world of<br>
+            programming, hone my skills, and strive for excellence<br>
+            in the dynamic field of technology. Let's embark on<br>
+            this exciting adventure together!</p>
+        <img src="image2.jpg" class="image2" alt="image">
+    </div>
+
+    <div class="section" id="projects">
+
+        <div class="projects-container">
+            <div class="project-box">    
+                <a href="https://xaniah-lz.github.io/ipt101-calculator-app/"><img src="calculator.png" alt="calculator"></a>
+                <p>CALCULATOR</p>
+            </div>
+            <div class="project-box">
+                <a href="https://xaniah-lz.github.io/rock-paper-scissor/"><img src="rock.png" alt="hand"></a>
+                <p>ROCK-PAPER-SCISSORS</p>
+            </div>
+            <div class="project-box">
+                <a href="https://xaniah-lz.github.io/online-resume/"><img src="resume.png" alt="resume"></a>
+                <p>RESUME</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-section" id="contact">
+        <h1>[ Contact Me ]</h1>
+        <div class="contact-links">
+            <a href="https://github.com/xaniah-lz">
+                <img src="git.png" alt="github" class="pic1">
+                <span>xaniah-lz</span>
+            </a>
+            <a href="https://www.instagram.com/_xaniah.lz/?next=%2F">
+                <img src="ig.png" alt="instagram" class="pic2">
+                <span>_xaniah.lz</span>
+            </a>
+            <a href="https://www.facebook.com/">
+                <img src="fb.png" alt="facebook" class="pic3">
+                <span>Lorejoy C. Zorrilla</span>
+            </a>
+        </div>
+        <div class="contact-form">
+            <form>
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+
+        </div>
+    </div>
+    <footer class="copy-right">
+        &copy; 2024 Lorejoy Zorrilla. All Rights Reserved. <!-- Replace with your name and details -->
+    </footer>
+
+    <button class="dark-mode-toggle">💡</button>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.querySelector(".dark-mode-toggle");
+            toggleButton.addEventListener("click", function() {
+                document.body.classList.toggle("dark-mode");
+            });
+        });
+    </script>
+</body>
+</html>
